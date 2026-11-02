@@ -48,7 +48,3 @@ Open the local URL printed by Vite. Vite forwards `/api` requests to the Rust AP
 5. Filter by room or search by roll, department, or classroom; export the complete allocation as CSV.
 
 The API accepts `POST /api/allocate` with plain text in this format: room count; one `room-number rows benches-per-row seats-per-bench` line per room; `student-count department-policy` (`0` no preference, `1` same department, `2` different departments); then one `roll department` line per student. It returns CSV with each student's department, classroom, row, bench, and seat position.
-
-## Reference
-
-The GitHub project supplied by the author was consulted for high-level scope only. Its source files are not part of this implementation. A local clone was attempted, but this environment could not resolve `github.com`.
