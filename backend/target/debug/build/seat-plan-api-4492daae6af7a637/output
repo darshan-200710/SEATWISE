@@ -1,0 +1,2 @@
+cargo:rustc-env=SEATING_BIN=/home/darshan-200710/Desktop/mini/backend/target/debug/build/seat-plan-api-4492daae6af7a637/out/seating
+cargo:rerun-if-changed=/home/darshan-200710/Desktop/mini/ds/seating.c

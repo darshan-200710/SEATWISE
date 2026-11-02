@@ -1,0 +1,1 @@
+/home/darshan-200710/Desktop/mini/backend/target/debug/seat-plan-api: /home/darshan-200710/Desktop/mini/backend/build.rs /home/darshan-200710/Desktop/mini/backend/src/main.rs /home/darshan-200710/Desktop/mini/ds/seating.c
