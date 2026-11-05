@@ -1,0 +1,16 @@
+# Build outputs
+target/
+backend/target/
+frontend/dist/
+frontend/node_modules/
+
+# Binaries
+*.exe
+*.o
+*.obj
+
+# Environment & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
