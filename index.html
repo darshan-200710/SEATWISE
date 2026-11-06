@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f6f3">
+  <title>Seatwise — Exam seating</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="brandmark">⌂</div><span>seatwise</span><small>ADMIN</small></div>
+      <div class="side-label">WORKSPACE</div>
+      <a class="nav active" href="#top">▦ <span>Overview</span></a>
+      <a class="nav" href="#classrooms">▤ <span>Classrooms</span></a>
+      <a class="nav" href="#students">♙ <span>Students</span></a>
+      <a class="nav" href="#seating-plan">▥ <span>Seating plans</span></a>
+      <div class="side-bottom"><button class="help" id="helpBtn">ⓘ <span>Need a hand?<small>Read the quick guide</small></span>›</button><div class="profile"><div class="avatar">AD</div><div><b>Administrator</b><small>Exam office</small></div></div></div>
+    </aside>
+    <main class="main" id="top">
+      <header><div class="crumb">Workspace <span>/</span> <b id="pageName">Overview</b></div><div class="header-right"><label class="search">⌕ <input id="search" placeholder="Search roll, dept, or room"><kbd>⌘ K</kbd></label><span class="date" id="today"></span><div class="avatar small">AD</div></div></header>
+      <div class="content">
+        <section class="welcome"><div><div class="eyebrow">EXAM OPERATIONS · 2026</div><h1>Seating, sorted.</h1><p>Set up your classrooms and student roster. We'll take it from here.</p></div><button class="term" id="term">● <span>Semester 1</span>⌄</button></section>
+        <div class="workspace-bar"><div><button class="quiet" id="demo">＋ Load demo data (optional)</button> <button class="quiet" id="clear">↻ Clear workspace</button></div><button class="quiet" id="prefs">⚙ Preferences</button></div>
+        <section class="stats">
+          <article class="stat"><span class="stat-icon">▤</span><small>Classrooms</small><strong id="roomCount">00</strong><span>in this session</span></article>
+          <article class="stat"><span class="stat-icon green">⌂</span><small>Total capacity</small><strong id="capacity">0</strong><span>available seats</span></article>
+          <article class="stat"><span class="stat-icon blue">♙</span><small>Students</small><strong id="studentCount">00</strong><span>on the roster</span></article>
+          <article class="stat"><span class="stat-icon peach">✓</span><small>Seat coverage</small><strong id="coverage">—</strong><span>of configured capacity</span></article>
+        </section>
+        <div class="section-title"><div><h2>Build your seating plan</h2><p>Configure room layouts and paste your student roster.</p></div><span class="status-pill">● LOCAL WORKSPACE</span></div>
+        <section class="builder">
+          <article class="panel rooms" id="classrooms"><div class="panel-head"><div class="panel-icon">▤</div><div><h3>Classrooms</h3><p>Set room layout and seat capacity</p></div><span class="count" id="roomCountTag">0 rooms</span></div>
+            <div class="room-labels"><span>ROOM NAME</span><span>ROWS</span><span>BENCHES / ROW</span><span>SEATS / BENCH</span><span></span></div>
+            <div id="roomRows"></div><button class="add-room" id="addRoom">＋ Add classroom</button>
+            <div class="capacity-line"><span>Total available capacity</span><b id="capacityLine">0 <small>seats</small></b></div>
+          </article>
+          <article class="panel roster" id="students"><div class="panel-head"><div class="panel-icon violet">♙</div><div><h3>Student roster</h3><p>Paste roll numbers and departments</p></div><span class="count" id="rosterTag">0 students</span></div>
+            <label class="sr-only" for="roster">Student roster</label><textarea id="roster" placeholder="24001, CSE&#10;24002, CE&#10;24003, MECH"></textarea>
+            <div class="roster-foot"><span>● <span id="rosterState">Ready for input</span></span><span>One student per line</span></div><div class="roster-tip"><span>i</span><span>Accepted departments: <b>CE, CSE, ECS, MECH</b>. Separate roll and department with a comma, space, or tab.</span></div>
+            <label class="policy-control">Pairing policy<select id="policy"><option value="0">No department rule</option><option value="1">Same department (strict)</option><option value="2">Different departments (strict)</option><option value="3">Prefer same department</option><option value="4">Prefer different departments</option></select></label>
+          </article>
+        </section>
+        <div id="notice" class="notice hidden"></div>
+        <div class="actions" id="actions"><span id="actionNote" class="action-note">Add rooms and students to begin.</span><button class="primary" id="generate">Generate seating plan <span>→</span></button></div>
+        <section class="panel results hidden" id="seating-plan"><div class="results-head"><div><h3>Seating plan</h3><p id="resultsSubtitle">Your generated classroom allocation.</p></div><button class="quiet" id="export">⇩ Export CSV</button></div><div class="room-tabs" id="roomTabs"></div><div class="table-wrap"><table><thead><tr><th>ROLL NUMBER</th><th>DEPARTMENT</th><th>CLASSROOM</th><th>ROW</th><th>BENCH · SEAT</th><th>STATUS</th></tr></thead><tbody id="planRows"></tbody></table></div></section>
+        <footer>Seatwise <span>·</span> Exam administration made simpler</footer>
+      </div>
+    </main>
+  </div>
+  <dialog id="dialog"><button class="modal-close" id="closeDialog">×</button><div class="eyebrow">QUICK GUIDE</div><h2>How to make a seating plan</h2><ol><li>Add classrooms and configure rows, benches, and seats per bench.</li><li>Paste one student per line as <code>ROLL, DEPARTMENT</code>.</li><li>Choose a pairing policy and generate the plan. Search, filter by classroom, and export the results as CSV.</li></ol><button class="primary" id="gotIt">Got it →</button></dialog>
+</body>
+</html>
